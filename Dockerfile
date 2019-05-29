@@ -7,14 +7,14 @@ RUN echo 'deb http://apt.llvm.org/stretch/ llvm-toolchain-stretch-8 main' > /etc
 RUN wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-get update && apt-get install -y --no-install-recommends clang-8
 
-ENV GO_RELEASE=1.12.4
+ENV GO_RELEASE=1.12.5
 RUN wget https://dl.google.com/go/go${GO_RELEASE}.linux-amd64.tar.gz && \
     tar xfv go${GO_RELEASE}.linux-amd64.tar.gz -C /usr/local && \
     rm go${GO_RELEASE}.linux-amd64.tar.gz && \
     find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' -exec rm -rf {} +
 ENV PATH=${PATH}:/usr/local/go/bin
 
-ENV TINYGO_RELEASE=0.5.0
+ENV TINYGO_RELEASE=0.6.0
 RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz && \
     tar xfv tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz -C /usr/local && \
     rm tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz
