@@ -11,7 +11,7 @@ ENV GO_RELEASE=1.12.5
 RUN wget https://dl.google.com/go/go${GO_RELEASE}.linux-amd64.tar.gz && \
     tar xfv go${GO_RELEASE}.linux-amd64.tar.gz -C /usr/local && \
     rm go${GO_RELEASE}.linux-amd64.tar.gz && \
-    find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' -exec rm -rf {} +
+    find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' -exec rm -rf {} +
 ENV PATH=${PATH}:/usr/local/go/bin
 
 ENV TINYGO_RELEASE=0.6.0
