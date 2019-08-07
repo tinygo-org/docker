@@ -3,7 +3,7 @@ FROM debian:stable-slim
 RUN apt-get update && \
     apt-get install -y wget gcc gcc-avr avr-libc gnupg
 
-RUN echo 'deb http://apt.llvm.org/stretch/ llvm-toolchain-stretch-8 main' > /etc/apt/sources.list.d/clang-8.list
+RUN echo 'deb http://apt.llvm.org/buster/ llvm-toolchain-buster-8 main' > /etc/apt/sources.list.d/clang-8.list
 RUN wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-get update && apt-get install -y --no-install-recommends clang-8
 
