@@ -14,7 +14,7 @@ RUN wget https://dl.google.com/go/go${GO_RELEASE}.linux-amd64.tar.gz && \
     find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' -exec rm -rf {} +
 ENV PATH=${PATH}:/usr/local/go/bin
 
-ENV TINYGO_RELEASE=0.6.0
+ENV TINYGO_RELEASE=0.7.1
 RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz && \
     tar xfv tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz -C /usr/local && \
     rm tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz
