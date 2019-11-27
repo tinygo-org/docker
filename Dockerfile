@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-RUN apt-get update && \
+RUN apt-get clean && apt-get update && \
     apt-get install -y wget gcc gcc-avr avr-libc gnupg
 
 RUN echo 'deb http://apt.llvm.org/buster/ llvm-toolchain-buster-9 main' > /etc/apt/sources.list.d/clang-9.list
