@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
 RUN apt-get clean && apt-get update && \
-    apt-get install -y wget gcc gcc-avr avr-libc gnupg
+    apt-get install -y wget gcc gcc-avr avr-libc
 
 ENV GO_RELEASE=1.13.5
 RUN wget https://dl.google.com/go/go${GO_RELEASE}.linux-amd64.tar.gz && \
@@ -16,7 +16,7 @@ RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEAS
     rm tinygo${TINYGO_RELEASE}.linux-amd64.tar.gz
 ENV PATH=${PATH}:/usr/local/tinygo/bin
 
-RUN apt-get remove -y wget gnupg && \
+RUN apt-get remove -y wget && \
     apt-get autoremove -y && \
     apt-get clean
 
