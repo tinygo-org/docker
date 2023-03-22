@@ -23,7 +23,7 @@ RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEAS
 FROM debian:stable-slim as build
 
 RUN apt-get clean && apt-get update && \
-    apt-get install -y gcc git sudo && \
+    apt-get install -y gcc git sudo make && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash tinygo
