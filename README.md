@@ -10,4 +10,5 @@ docker pull ghcr.io/tinygo-org/tinygo
 
 Older versions are on Docker Hub at https://hub.docker.com/r/tinygo/tinygo
 
-For information on how to use this, please see [https://tinygo.org/getting-started/using-docker/](https://tinygo.org/getting-started/using-docker/)
+For information on how to use this, please see
+https://tinygo.org/getting-started/install/using-docker/.
