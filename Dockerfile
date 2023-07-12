@@ -14,9 +14,9 @@ RUN wget https://dl.google.com/go/go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.
     find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' ! -name 'bin' ! -name 'pkg' -exec rm -rf {} +
 
 
-ENV TINYGO_RELEASE=0.28.1
-RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo${TINYGO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz && \
-    tar xfv tinygo${TINYGO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
+ENV TINYGO_RELEASE=0.28.1-polywrap.1
+RUN wget https://github.com/polywrap/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo.${TARGETOS}-${TARGETARCH}.tar.gz && \
+    tar xfv tinygo.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
 
 
 # Build final image, emulation, runs as TARGETARCH
