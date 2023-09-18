@@ -11,7 +11,7 @@ RUN  apt-get clean && apt-get update && \
 ENV GO_RELEASE=1.21.0
 RUN wget https://dl.google.com/go/go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz && \
     tar xfv go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local && \
-    find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' ! -name 'bin' ! -name 'pkg' -exec rm -rf {} +
+    find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' ! -name 'bin' ! -name 'pkg' ! -name 'go.env' -exec rm -rf {} +
 
 
 ENV TINYGO_RELEASE=0.29.0
@@ -29,7 +29,7 @@ RUN apt-get clean && apt-get update && \
 RUN useradd -ms /bin/bash tinygo
 RUN usermod -aG sudo tinygo && echo "tinygo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER tinygo
-WORKDIR /home/tinygo   
+WORKDIR /home/tinygo
 
 COPY --from=base /usr/local/go /usr/local/go
 COPY --from=base /usr/local/tinygo /usr/local/tinygo
