@@ -8,13 +8,13 @@ ARG TARGETARCH
 RUN  apt-get clean && apt-get update && \
     apt-get install -y wget
 
-ENV GO_RELEASE=1.23.2
+ENV GO_RELEASE=1.23.4
 RUN wget https://dl.google.com/go/go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz && \
     tar xfv go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local && \
     find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' ! -name 'bin' ! -name 'pkg' ! -name 'go.env' -exec rm -rf {} +
 
 
-ENV TINYGO_RELEASE=0.34.0
+ENV TINYGO_RELEASE=0.35.0
 RUN wget https://github.com/tinygo-org/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo${TINYGO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz && \
     tar xfv tinygo${TINYGO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
 
